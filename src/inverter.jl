@@ -103,16 +103,16 @@ julia> pv_inverter.pdco
 ```
 """
 function read_solar_inverter(
-    inverter_name::AbstractString="ABB: MICRO-0.25-I-OUTD-US-208 [208V]",
-    inverter_filename::AbstractString="sam-library-cec-inverters-2019-03-05.csv",
-    directory::AbstractString=joinpath(@__DIR__, "..", "data"),
-    header_rows::Integer=1,
-    skip_rows::Integer=4,
-    T::Type=Float64,
+    inverter_name::AbstractString = "ABB: MICRO-0.25-I-OUTD-US-208 [208V]",
+    inverter_filename::AbstractString = "sam-library-cec-inverters-2019-03-05.csv",
+    directory::AbstractString = joinpath(@__DIR__, "..", "data"),
+    header_rows::Integer = 1,
+    skip_rows::Integer = 4,
+    T::Type = Float64,
 )
 
     path = joinpath(directory, inverter_filename)
-    file = File(path; header=header_rows, skipto=skip_rows)
+    file = File(path; header = header_rows, skipto = skip_rows)
 
     for r in file
         String(r[Symbol("Name")]) == inverter_name || continue

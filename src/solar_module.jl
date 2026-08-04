@@ -188,16 +188,16 @@ true
 ```
 """
 function read_solar_module(
-    module_name::AbstractString="Canadian Solar CS5P-220M [ 2009]",
-    module_filename::AbstractString="sam-library-sandia-modules-2015-6-30.csv",
-    directory::AbstractString=joinpath(@__DIR__, "..", "data"),
-    header_rows::Integer=1,
-    skip_rows::Integer=4,
-    T::Type=Float64,
+    module_name::AbstractString = "Canadian Solar CS5P-220M [ 2009]",
+    module_filename::AbstractString = "sam-library-sandia-modules-2015-6-30.csv",
+    directory::AbstractString = joinpath(@__DIR__, "..", "data"),
+    header_rows::Integer = 1,
+    skip_rows::Integer = 4,
+    T::Type = Float64,
 )
 
     path = joinpath(directory, module_filename)
-    file = File(path; header=header_rows, skipto=skip_rows)
+    file = File(path; header = header_rows, skipto = skip_rows)
 
     for r in file
         String(r[Symbol("Name")]) == module_name || continue
@@ -757,10 +757,10 @@ function sapm_dc_components(
     pv_module::SolarModule,
     effective_irradiance::EffectiveIrradiance,
     cell_temperature::CellTemperature,
-    temperature_ref::Real=25.0,
-    irradiance_ref::Real=1000.0,
-    q::Real=1.602176634e-19,
-    kb::Real=1.380649e-23,
+    temperature_ref::Real = 25.0,
+    irradiance_ref::Real = 1000.0,
+    q::Real = 1.602176634e-19,
+    kb::Real = 1.380649e-23,
 )
 
     effective_irradiance.time == cell_temperature.time || throw(
@@ -837,10 +837,10 @@ function sapm_dc_components(
     pv_module::SolarModule,
     effective_irradiance::Vector{<:EffectiveIrradiance},
     cell_temperature::Vector{<:CellTemperature},
-    temperature_ref::Real=25.0,
-    irradiance_ref::Real=1000.0,
-    q::Real=1.602176634e-19,
-    kb::Real=1.380649e-23,
+    temperature_ref::Real = 25.0,
+    irradiance_ref::Real = 1000.0,
+    q::Real = 1.602176634e-19,
+    kb::Real = 1.380649e-23,
 )
 
     n = length(effective_irradiance)
