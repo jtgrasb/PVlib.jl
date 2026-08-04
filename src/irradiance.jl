@@ -174,8 +174,8 @@ function haydavies(
     dhi::Real,
     dni::Real,
     dni_extra::Real,
-    solar_zenith::Union{Nothing,Real} = nothing,
-    solar_azimuth::Union{Nothing,Real} = nothing,
+    solar_zenith::Union{Nothing,Real}=nothing,
+    solar_azimuth::Union{Nothing,Real}=nothing,
 )
 
     # Calculate the ratio of tilted and horizontal beam irradiance
@@ -207,8 +207,8 @@ function haydavies(
     dhi::AbstractVector{<:Real},
     dni::AbstractVector{<:Real},
     dni_extra::AbstractVector{<:Real},
-    solar_zenith::Union{Nothing,AbstractVector{<:Real}} = nothing,
-    solar_azimuth::Union{Nothing,AbstractVector{<:Real}} = nothing,
+    solar_zenith::Union{Nothing,AbstractVector{<:Real}}=nothing,
+    solar_azimuth::Union{Nothing,AbstractVector{<:Real}}=nothing,
 )
 
     sky_diffuse = similar(dhi)
@@ -235,8 +235,8 @@ function haydavies(
     dhi::AbstractVector{<:Real},
     dni::AbstractVector{<:Real},
     dni_extra::AbstractVector{<:Real},
-    solar_zenith::Union{Nothing,AbstractVector{<:Real}} = nothing,
-    solar_azimuth::Union{Nothing,AbstractVector{<:Real}} = nothing,
+    solar_zenith::Union{Nothing,AbstractVector{<:Real}}=nothing,
+    solar_azimuth::Union{Nothing,AbstractVector{<:Real}}=nothing,
 )
 
     sky_diffuse = similar(dhi)
@@ -263,8 +263,8 @@ function haydavies(
     dhi::AbstractVector{<:Real},
     dni::AbstractVector{<:Real},
     dni_extra::AbstractVector{<:Real},
-    solar_zenith::Union{Nothing,AbstractVector{<:Real}} = nothing,
-    solar_azimuth::Union{Nothing,AbstractVector{<:Real}} = nothing,
+    solar_zenith::Union{Nothing,AbstractVector{<:Real}}=nothing,
+    solar_azimuth::Union{Nothing,AbstractVector{<:Real}}=nothing,
 )
 
     sky_diffuse = similar(dhi)
@@ -291,8 +291,8 @@ function haydavies(
     dhi::AbstractVector{<:Real},
     dni::AbstractVector{<:Real},
     dni_extra::AbstractVector{<:Real},
-    solar_zenith::Union{Nothing,AbstractVector{<:Real}} = nothing,
-    solar_azimuth::Union{Nothing,AbstractVector{<:Real}} = nothing,
+    solar_zenith::Union{Nothing,AbstractVector{<:Real}}=nothing,
+    solar_azimuth::Union{Nothing,AbstractVector{<:Real}}=nothing,
 )
 
     sky_diffuse = similar(dhi)
