@@ -371,19 +371,19 @@ function rolling_average_sapm_cell_temperature(
 end
 
 # Define a simple panel geometry including width and height
-struct Panel
-    width::Float64
-    height::Float64
+struct Panel{T<:Real}
+    width::T
+    height::T
 end
 
 # Define a simple axis-aligned box obstacle with coordinates relative to panel local frame
-struct BoxObstacle
-    xmin::Float64
-    xmax::Float64
-    ymin::Float64
-    ymax::Float64
-    zmin::Float64
-    zmax::Float64
+struct BoxObstacle{T<:Real}
+    xmin::T
+    xmax::T
+    ymin::T
+    ymax::T
+    zmin::T
+    zmax::T
 end
 
 # Return a smooth surrogate in [0, 1] for whether a ray intersects the box.
