@@ -203,7 +203,7 @@ function _fetch_nsrdb_psm4_tmy(
     affiliation::AbstractString = "PVlib.jl",
     utc::Bool = false,
     require_ssl_verification::Bool = true,
-    timeout::Real = 30,
+    timeout::Real = 10,
     url::AbstractString = PSM4_TMY_URL,
 )
 
@@ -226,7 +226,7 @@ function _fetch_nsrdb_psm4_tmy(
         url,
         query = params,
         require_ssl_verification = require_ssl_verification,
-        timeout = timeout,
+        connect_timeout = timeout,
     )
 
     return String(response.body)
