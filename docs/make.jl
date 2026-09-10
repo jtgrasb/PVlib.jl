@@ -10,4 +10,4 @@ makedocs(
     pages = ["Home" => "index.md", "API" => "api.md"],
 )
 
-deploydocs(repo = "github.com/jtgrasb/PVlib.jl", devbranch = "main")
+deploydocs(repo = "github.com/sandialabs/PVlib.jl", devbranch = "main")
