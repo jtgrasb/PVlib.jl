@@ -5,7 +5,6 @@ using JSON: parse
 using Dates: Date, DateTime, Second, @dateformat_str, UTC, dayofyear, value
 using TimeZones: ZonedDateTime, TimeZone, Millisecond, month, day, Minute
 using CSV: File
-using Plots: plot
 using Statistics: mean
 using LinearAlgebra
 using RecipesBase
@@ -16,12 +15,12 @@ using ChainRulesCore: ignore_derivatives
 const DEFAULT_ABS_DELTA = 1.0e-6
 const DEFAULT_KS_HARDNESS = 50.0
 
-pv_smooth_abs(x; delta::Real = DEFAULT_ABS_DELTA) = abs_smooth(x, delta * one(x))
-pv_smooth_max(a, b; hardness::Real = DEFAULT_KS_HARDNESS) = ksmax([a, b], hardness)
-pv_smooth_min(a, b; hardness::Real = DEFAULT_KS_HARDNESS) = ksmin([a, b], hardness)
-pv_smooth_clamp(x, lo, hi; hardness::Real = DEFAULT_KS_HARDNESS) =
-    pv_smooth_min(pv_smooth_max(x, lo; hardness = hardness), hi; hardness = hardness)
-pv_smooth_step(x; hardness::Real = DEFAULT_KS_HARDNESS) = (one(x) + tanh(hardness * x)) / 2
+pv_smooth_abs(x; delta::Real=DEFAULT_ABS_DELTA) = abs_smooth(x, delta * one(x))
+pv_smooth_max(a, b; hardness::Real=DEFAULT_KS_HARDNESS) = ksmax([a, b], hardness)
+pv_smooth_min(a, b; hardness::Real=DEFAULT_KS_HARDNESS) = ksmin([a, b], hardness)
+pv_smooth_clamp(x, lo, hi; hardness::Real=DEFAULT_KS_HARDNESS) =
+    pv_smooth_min(pv_smooth_max(x, lo; hardness=hardness), hi; hardness=hardness)
+pv_smooth_step(x; hardness::Real=DEFAULT_KS_HARDNESS) = (one(x) + tanh(hardness * x)) / 2
 
 datapath(parts...) = joinpath(pkgdir(@__MODULE__), "data", parts...)
 
